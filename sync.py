@@ -88,9 +88,6 @@ def yield_data(dir):
 if __name__ == '__main__':
     dir = sys.argv[1]
     print('Parsing directory {}...'.format(dir))
-    e=0
-    for data in yield_data(dir):
-        for d in data.items():
-            print(d)
-        e+=1
-    print(e)
+    with open('existing_files.txt', 'w') as f:
+        for file in get_files(dir):
+            f.write(os.path.basename(file) + '\n')
