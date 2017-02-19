@@ -13,8 +13,11 @@ if __name__ == '__main__':
     dir = sys.argv[1]
     existing_file = sys.argv[2]
     existing = get_existing_files(existing_file)
-    with open('new_files.txt') as f:
+    with open('new_files.txt', 'w', encoding='utf-8') as f:
         for file in get_files(dir):
             if os.path.basename(file) not in existing:
-                print(file)
-                f.write(file)
+                f.write(os.path.basename(file) + '\n')
+                try:
+                	print(file)
+                except:
+                	pass
