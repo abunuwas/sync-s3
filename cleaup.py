@@ -1,11 +1,8 @@
-from difflib import SequenceMatcher
 import Levenshtein
-import os
 import re
 
 
 def similar(one, two):
-    #return SequenceMatcher(None, one, two).ratio()
     return Levenshtein.ratio(one, two)
 
 
